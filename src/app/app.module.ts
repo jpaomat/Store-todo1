@@ -4,6 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentsModule } from './core/layout/components/components.module';
 import { FooterComponent } from './core/layout/components/footer/footer.component';
 import { NavComponent } from './core/layout/components/nav/nav.component';
 
@@ -16,7 +17,8 @@ import { NavComponent } from './core/layout/components/nav/nav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

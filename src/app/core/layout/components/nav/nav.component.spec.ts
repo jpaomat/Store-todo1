@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavComponent } from './nav.component';
 
@@ -8,7 +10,10 @@ describe('NavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavComponent ]
+      declarations: [ NavComponent ],
+      imports: [
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });
@@ -20,6 +25,8 @@ describe('NavComponent', () => {
   });
 
   it('should create', () => {
+    spyOn(TestBed.inject(Router), 'navigate').and.returnValue(Promise.resolve(true));
+    component.redirectTo('');
     expect(component).toBeTruthy();
   });
 });

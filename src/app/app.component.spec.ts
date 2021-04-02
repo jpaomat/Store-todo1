@@ -23,13 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'store-todo1'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    app.ngOnInit();
     expect(app.title).toEqual('store-todo1');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('store-todo1 app is running!');
   });
 });

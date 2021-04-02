@@ -20,6 +20,7 @@ describe('KardexComponent', () => {
   });
 
   it('should create', () => {
+    component.showButtonsTable(2, 'inventory');
     expect(component).toBeTruthy();
   });
 });

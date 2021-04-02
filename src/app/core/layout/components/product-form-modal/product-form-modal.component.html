@@ -1,1 +1,71 @@
-<p>product-form-modal works!</p>
+<section *ngIf="showModal" class="modalContainer modalContainer--isShow" id="contCanguro">
+    <div class="contMain">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modal-basic-title">Agregar nuevo producto</h5>
+            <button type="button" class="close" aria-label="Close" (click)="onClose(false)">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p class="mb-4">Por favor ingrese los siguientes datos para registrar un nuevo producto (todos los campos
+                son obligatorios):</p>
+            <form [formGroup]="registerForm">
+                <div class="row form-group content-center">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Nombre del producto"
+                            formControlName="nameProduct">
+                        <!-- <div class="alertt" *ngIf="namePet.invalid && (namePet.dirty ||   namePet.touched)">
+                            <span>Ingrese el nombre de la mascota (Solo letras)</span>
+                        </div> -->
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Referencia" formControlName="reference">
+                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
+                            <span>Ingrese la raza de la mascota (Solo letras)</span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="row form-group content-center">
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="Descripción" formControlName="description">
+                        <!-- <div class="alertt" *ngIf="namePet.invalid && (namePet.dirty ||   namePet.touched)">
+                            <span>Ingrese el nombre de la mascota (Solo letras)</span>
+                        </div> -->
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Cantidad" formControlName="quantity">
+                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
+                            <span>Ingrese la raza de la mascota (Solo letras)</span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="row form-group content-center">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Precio" formControlName="price">
+                        <!-- <div class="alertt" *ngIf="namePet.invalid && (namePet.dirty ||   namePet.touched)">
+                            <span>Ingrese el nombre de la mascota (Solo letras)</span>
+                        </div> -->
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Descuento" formControlName="discount">
+                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
+                            <span>Ingrese la raza de la mascota (Solo letras)</span>
+                        </div> -->
+                    </div>
+                    <div class="col-md-6">
+                        <input type="file" class="col-sm-12 btn-image py-1 content-center"
+                            (change)="captureImage($event)">
+                        <!-- <input type="text" class="form-control" placeholder="Imagen" formControlName="image"> -->
+                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
+                            <span>Ingrese la raza de la mascota (Solo letras)</span>
+                        </div> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-success" [disabled]="validateForm()"
+                (click)="onCall()">Save</button>
+        </div>
+    </div>
+</section>

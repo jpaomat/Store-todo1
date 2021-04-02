@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { ProductFormModalComponent } from './product-form-modal.component';
 
@@ -8,7 +9,10 @@ describe('ProductFormModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductFormModalComponent ]
+      declarations: [ ProductFormModalComponent ],
+      providers: [
+        FormBuilder
+      ]
     })
     .compileComponents();
   });

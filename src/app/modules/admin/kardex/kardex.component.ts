@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import KARDEX from 'src/app/config/dataTest/kardex.json';
 import { DataManagementService } from 'src/app/core/services/dataManagement/data-management.service';
+import { ProductFormModalService } from 'src/app/core/services/productFormModal/product-form-modal.service';
 
 @Component({
   selector: 'app-kardex',
@@ -23,7 +24,8 @@ export class KardexComponent implements OnInit {
   public fieldsTable;
 
   constructor(
-    private dataManagementService: DataManagementService
+    private dataManagementService: DataManagementService,
+    private productFormService: ProductFormModalService
   ) { }
 
   ngOnInit(): void {
@@ -54,5 +56,14 @@ export class KardexComponent implements OnInit {
     this.titleTable = this.dataView.parametricTexts.header[0].title[index].T001;
     this.optionSelected = optionSelected;
     this.validateOptionSelected(index);
+  }
+
+  public showForm(state) {
+    console.log('¡clickkk', state)
+    this.productFormService.showModal({
+      activateModal: state,
+      textsProductForm: 'data to show on product form layout',
+      dataProductForm: 'data product form'
+    });
   }
 }
