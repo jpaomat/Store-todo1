@@ -1,0 +1,203 @@
+{
+    "products": [
+        {
+            "glasses": [
+                {
+                    "index": "1",
+                    "name": "vaso1",
+                    "reference": "xxx",
+                    "quantity": 3,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/vaso1.jpg",
+                    "discount": 15
+                },
+                {
+                    "index": "2",
+                    "name": "vaso2",
+                    "reference": "xxxddd",
+                    "quantity": 6,
+                    "price": 5000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/vaso2.jpg",
+                    "discount": 0
+                }
+            ],
+            "toys": [
+                {
+                    "index": "1",
+                    "name": "toy1",
+                    "reference": "xxx",
+                    "quantity": 3,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/toy1.jpg",
+                    "discount": 5
+                },
+                {
+                    "index": "2",
+                    "name": "toy2",
+                    "reference": "xxx",
+                    "quantity": 3,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/toy2.jpg",
+                    "discount": 0
+                },
+                {
+                    "index": "3",
+                    "name": "toy3",
+                    "reference": "xxx",
+                    "quantity": 3,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/toy3.jpg",
+                    "discount": 19
+                }
+            ],
+            "books": [
+                {
+                    "index": "1",
+                    "name": "libro1",
+                    "reference": "xxx",
+                    "quantity": 63,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/libro1.jpg",
+                    "discount": 15
+                },
+                {
+                    "index": "2",
+                    "name": "libro2",
+                    "reference": "xxx",
+                    "quantity": 34,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/libro2.jpg",
+                    "discount": 0
+                },
+                {
+                    "index": "3",
+                    "name": "libro3",
+                    "reference": "xxx",
+                    "quantity": 3,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/libro3.jpeg",
+                    "discount": 0
+                }
+            ],
+            "comics": [
+                {
+                    "index": "1",
+                    "name": "comic1",
+                    "reference": "xxx",
+                    "quantity": 37,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/comic1.jpg",
+                    "discount": 0
+                },
+                {
+                    "index": "2",
+                    "name": "comic2",
+                    "reference": "xxx",
+                    "quantity": 37,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/comic2.jpg",
+                    "discount": 0
+                },
+                {
+                    "index": "3",
+                    "name": "comic3",
+                    "reference": "xxx",
+                    "quantity": 347,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/comic3.jpg",
+                    "discount": 0
+                }
+            ],
+            "accesories": [
+                {
+                    "index": "1",
+                    "name": "accesorio1",
+                    "reference": "xxx",
+                    "quantity": 17,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/acs1.jpg",
+                    "discount": 0
+                },
+                {
+                    "index": "2",
+                    "name": "accesorio2",
+                    "reference": "xxx",
+                    "quantity": 17,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/acs2.jpg",
+                    "discount": 0
+                }
+            ],
+            "tshirts": [
+                {
+                    "index": "1",
+                    "name": "camiseta1",
+                    "reference": "xxx",
+                    "quantity": 17,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/camiseta1.jpg",
+                    "discount": 20
+                },
+                {
+                    "index": "2",
+                    "name": "camiseta2",
+                    "reference": "xxx",
+                    "quantity": 17,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/camiseta2.jpg",
+                    "discount": 0
+                },
+                {
+                    "index": "3",
+                    "name": "camiseta3",
+                    "reference": "xxx",
+                    "quantity": 17,
+                    "price": 3000,
+                    "description": "esta es la description",
+                    "image": "../../../../../assets/images/camiseta3.jpg",
+                    "discount": 0
+                }
+            ]
+        }
+    ],
+    "discountCategories": [
+        {
+            "glasses": [
+                {
+                    "text": "Vasos con diseños increibles.",
+                    "image": "../../../../../assets/images/vaso3.png",
+                    "discount": 30
+                }
+            ],
+            "tshirts": [
+                {
+                    "text": "Luce camisetas con diseños personalizados.",
+                    "image": "../../../../../assets/images/camiseta3.jpg",
+                    "discount": 35
+                }
+            ],
+            "accesories": [
+                {
+                    "text": "Regala los mejores accesorios.",
+                    "image": "../../../../../assets/images/acs1.jpg",
+                    "discount": 20
+                }
+            ]
+        }
+    ]
+}

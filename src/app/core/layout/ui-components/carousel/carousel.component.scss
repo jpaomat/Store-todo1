@@ -1,0 +1,41 @@
+img{
+    width: 30%;
+    height: 400px !important;
+}
+.fondo{
+    // background-color: rgb(107, 103, 96);
+    background: url(../../../../../assets/images/fondo2.jpg);
+    // background-color: rgba(26, 25, 25, 0.877);
+    padding-left: 15%;
+    width: 100%;
+}
+.carousel-caption{
+    background-color: rgba(68, 71, 67, 0);
+}
+.p5{
+    padding: 5px;
+}
+.fl{
+    padding: 11% 0 0 8%;
+    color: rgb(58, 31, 134);
+}
+.df{
+    display: flex;
+    width: 100%;
+}
+.text1{
+    font-size: 28px;
+    font-weight: bold;
+}
+.text2{
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+.text3{
+    line-height: 0.8;
+    font-size: 55px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}

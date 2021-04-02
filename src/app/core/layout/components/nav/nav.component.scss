@@ -1,0 +1,64 @@
+.logo {
+  width: 10%;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+  min-height: 100px;
+  //   background: url(../../../assets/images/huella.jpg);
+  margin-left: auto;
+  margin-right: auto;
+  background-size: 15%;
+  position: initial;
+}
+
+/*.nav-color{
+    background-color: white;
+  }*/
+.navbar-brand {
+  //   color: black;
+  color: rgb(58, 31, 134);
+  //   font-family: 'Pacifico', cursive;
+  font-size: large;
+}
+
+.nav-link {
+  color: rgb(58, 31, 134);
+  //   font-family: 'Lobster', cursive;
+  font-size: 22px;
+}
+
+.navbar-collapse0 {
+  /* flex-basis: 100%; */
+  flex-grow: 0;
+}
+
+button {
+  border: none;
+  background-color: white;
+  color: rgb(58, 31, 134);
+  font-size: large;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.show>.btn-outline-primary.dropdown-toggle,
+.btn-outline-primary:hover {
+  color: rgb(58, 31, 134);
+  background-color: white;
+  border-color: white;
+
+}
+
+.show>.btn-outline-primary.dropdown-toggle:focus,
+.btn-outline-primary:focus {
+  box-shadow: none;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: 0;
+  }
+}

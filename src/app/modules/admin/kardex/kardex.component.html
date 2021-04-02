@@ -1,0 +1,50 @@
+<section class="containerSection">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="">
+            <h5 [innerHTML]="titleTable"></h5>
+        </div>
+        <div class="input">
+            <div class="input-group">
+                <input type="text" class="form-control"
+                    [placeholder]="dataView.parametricTexts.header[1].search[0].placeholder">
+                <button class="btn btn-outline-secondary tooltipp" type="button" placement="top"
+                    [ngbTooltip]="dataView.parametricTexts.header[1].search[0].tooltip">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+                <button class="btn btn-outline-secondary" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <div>
+            <button *ngFor="let button of dataView.parametricTexts.header[2].buttons, let i=index"
+                class="btn btn-outline-secondary m-1" type="button" (click)="showButtonsTable(i, button.option)"
+                [ngClass]="arrayClassButtons[i]">
+                {{button.B001}}
+            </button>
+        </div>
+    </div>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" *ngFor="let columns of fieldsTable">
+                    {{columns.label}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td *ngFor="let product of productsInventory; let i= index" [ngClass]="validateStock(product.stock)">
+                    {{product[fieldsTable[i].field]}}</td>
+                <!-- <td>{{product.reference}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.inputs}}</td>
+                <td>{{product.outputs}}</td>
+                <td>{{product.stock}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.inventoryQuantity}}</td> -->
+            </tr>
+        </tbody>
+    </table>
+</section>

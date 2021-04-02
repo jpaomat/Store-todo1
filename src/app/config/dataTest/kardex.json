@@ -1,0 +1,224 @@
+{
+    "kardex": [
+        {
+            "header": [
+                {
+                    "title": [
+                        {
+                            "T001": "INVENTARIO DE PRODUCTOS"
+                        },
+                        {
+                            "T001": "REGISTRO DE ENTRADAS"
+                        },
+                        {
+                            "T001": "REGISTRO DE SALIDAS"
+                        }
+                    ]
+                },
+                {
+                    "search": [
+                        {
+                            "placeholder": "Buscar producto",
+                            "tooltip": "Ingrese la referencia del producto"
+                        }
+                    ]
+                },
+                {
+                    "buttons": [
+                        {
+                            "B001": "Inventario",
+                            "option": "inventory"
+                        },
+                        {
+                            "B001": "Entradas",
+                            "option": "inputs"
+                        },
+                        {
+                            "B001": "Salidas",
+                            "option": "outputs"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "table": [
+                {
+                    "nameColumns": [
+                        {
+                            "inventory": [
+                                {
+                                    "label": "# Factura",
+                                    "field": "invoiceNumber"
+                                },
+                                {
+                                    "label": "Referencia",
+                                    "field": "reference"
+                                },
+                                {
+                                    "label": "Descripción",
+                                    "field": "description"
+                                },
+                                {
+                                    "label": "Entradas",
+                                    "field": "inputs"
+                                },
+                                {
+                                    "label": "Salidas",
+                                    "field": "outputs"
+                                },
+                                {
+                                    "label": "Stock",
+                                    "field": "stock"
+                                },
+                                {
+                                    "label": "Precio",
+                                    "field": "price"
+                                },
+                                {
+                                    "label": "Importe inventario",
+                                    "field": "inventoryQuantity"
+                                }
+                            ],
+                            "inputs": [
+                                {
+                                    "label": "# Factura",
+                                    "field": "invoiceNumber"
+                                },
+                                {
+                                    "label": "Referencia",
+                                    "field": "reference"
+                                },
+                                {
+                                    "label": "Descripción",
+                                    "field": "description"
+                                },
+                                {
+                                    "label": "Cantidad",
+                                    "field": "quantity"
+                                },
+                                {
+                                    "label": "Precio",
+                                    "field": "price"
+                                },
+                                {
+                                    "label": "Fecha",
+                                    "field": "date"
+                                }
+                            ],
+                            "outputs": [
+                                {
+                                    "label": "# Factura",
+                                    "field": "invoiceNumber"
+                                },
+                                {
+                                    "label": "Referencia",
+                                    "field": "reference"
+                                },
+                                {
+                                    "label": "Descripción",
+                                    "field": "description"
+                                },
+                                {
+                                    "label": "Cantidad",
+                                    "field": "quantity"
+                                },
+                                {
+                                    "label": "Precio",
+                                    "field": "price"
+                                },
+                                {
+                                    "label": "Fecha",
+                                    "field": "date"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "inventory": [
+                {
+                    "index": "1",
+                    "name": "vaso1",
+                    "invoiceNumber": "F01",
+                    "reference": "xx1",
+                    "description": "esta es la description",
+                    "inputs": 7,
+                    "outputs": 5,
+                    "stock": 2,
+                    "price": 3000,
+                    "inventoryQuantity": 5000
+                },
+                {
+                    "index": "1",
+                    "name": "vaso1",
+                    "invoiceNumber": "F02",
+                    "reference": "xx2",
+                    "description": "esta es la description",
+                    "inputs": 7,
+                    "outputs": 2,
+                    "stock": 5,
+                    "price": 3000,
+                    "inventoryQuantity": 5000
+                },
+                {
+                    "index": "1",
+                    "name": "vaso1",
+                    "invoiceNumber": "F03",
+                    "reference": "xxx",
+                    "description": "esta es la description",
+                    "inputs": 7,
+                    "outputs": 7,
+                    "stock": 0,
+                    "price": 3000,
+                    "inventoryQuantity": 5000
+                }
+            ]
+        },
+        {
+            "inputs ": [
+                {
+                    "index": "1",
+                    "name": "vaso1",
+                    "invoiceNumber": "F01",
+                    "reference": "xxx",
+                    "quantity": 7,
+                    "description": "esta es la description",
+                    "price": 3000,
+                    "inventoryQuantity": 5000,
+                    "date": "xxx"
+                },
+                {
+                    "index": "2",
+                    "name": "vaso1",
+                    "invoiceNumber": "F01",
+                    "reference": "xxx",
+                    "quantity": 3,
+                    "description": "esta es la description",
+                    "price": 3000,
+                    "inventoryQuantity": 5000,
+                    "date": "xxx"
+                }
+            ]
+        },
+        {
+            "outputs": [
+                {
+                    "index": "1",
+                    "name": "vaso1",
+                    "invoiceNumber": "F01",
+                    "reference": "xxx",
+                    "quantity": 5,
+                    "description": "esta es la description",
+                    "price": 3000,
+                    "inventoryQuantity": 5000,
+                    "date": "xxx"
+                }
+            ]
+        }
+    ]
+}
