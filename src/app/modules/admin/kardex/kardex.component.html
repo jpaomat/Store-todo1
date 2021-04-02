@@ -1,5 +1,5 @@
 <section class="containerSection">
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center headerTable">
         <div class="">
             <h5 [innerHTML]="titleTable"></h5>
         </div>
@@ -31,20 +31,30 @@
                 <th scope="col" *ngFor="let columns of fieldsTable">
                     {{columns.label}}
                 </th>
+                <th *ngIf="optionSelected =='inputs'">
+                    Editar
+                </th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td *ngFor="let product of productsInventory; let i= index" [ngClass]="validateStock(product.stock)">
-                    {{product[fieldsTable[i].field]}}</td>
-                <!-- <td>{{product.reference}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.inputs}}</td>
-                <td>{{product.outputs}}</td>
-                <td>{{product.stock}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.inventoryQuantity}}</td> -->
+            <tr *ngFor="let product of productsInventory; let i= index" [ngClass]="validateStock(product.stock)">
+                <td *ngFor="let columns of fieldsTable">
+                    {{product[columns.field]}}
+                </td>
+                <td class="edit" *ngIf="optionSelected =='inputs'">
+                    <i class="far fa-edit"></i>
+                </td>
             </tr>
         </tbody>
     </table>
+    <div *ngIf="optionSelected =='inputs'" class="d-flex justify-content-between align-items-center footerTable">
+        <div class="">
+            <P>
+                Agregar otra entrada
+            </P>
+        </div>
+        <div>
+            <i class="fas fa-plus-circle"></i>
+        </div>
+    </div>
 </section>

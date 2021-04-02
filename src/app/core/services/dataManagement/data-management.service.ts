@@ -8,7 +8,6 @@ export class DataManagementService {
   constructor() { }
 
   public organizeDataView(typeData, initialData, finalData?) {
-    console.log('data',typeData, initialData, finalData );
     let arrayTerms = [];
     let keysData = [];
     /* istanbul ignore else*/
@@ -38,7 +37,6 @@ export class DataManagementService {
         }
       });
     });
-    console.log('product', productsWithDiscount);
     return productsWithDiscount;
   }
 }

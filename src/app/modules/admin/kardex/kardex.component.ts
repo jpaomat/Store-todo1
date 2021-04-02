@@ -31,9 +31,7 @@ export class KardexComponent implements OnInit {
     this.titleTable = this.dataView.parametricTexts.header[0].title[0].T001
     this.optionSelected = this.dataView.parametricTexts.header[2].buttons[0].option;
     this.arrayClassButtons[0] = 'd-none';
-    // this.productsInventory = KARDEX.products[0][this.optionSelected];
-    this.validateOptionSelected();
-    console.log('productsInventory', this.productsInventory);
+    this.validateOptionSelected(0);
     console.log('this.dataView', this.dataView);
   }
 
@@ -41,12 +39,10 @@ export class KardexComponent implements OnInit {
     return (stock < 1) ? 'withoutStock' : '';
   }
 
-  public validateOptionSelected(): void {
+  public validateOptionSelected(index): void {
     let fields = this.dataView.parametricTexts.table[0].nameColumns[0];
-    this.productsInventory = KARDEX.products[0][this.optionSelected];
+    this.productsInventory = KARDEX.products[index][this.optionSelected];
     this.fieldsTable = fields[this.optionSelected];
-    console.log('fieldsTable', this.fieldsTable, this.optionSelected);
-    // return this.fieldsTable;
   }
 
   public showButtonsTable(index, optionSelected) {
@@ -57,6 +53,6 @@ export class KardexComponent implements OnInit {
     this.arrayClassButtons[index] = 'd-none';
     this.titleTable = this.dataView.parametricTexts.header[0].title[index].T001;
     this.optionSelected = optionSelected;
-    this.validateOptionSelected();
+    this.validateOptionSelected(index);
   }
 }
