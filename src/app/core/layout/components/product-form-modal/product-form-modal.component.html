@@ -1,15 +1,22 @@
 <section *ngIf="showModal" class="modalContainer modalContainer--isShow" id="contCanguro">
     <div class="contMain">
         <div class="modal-header">
-            <h5 class="modal-title" id="modal-basic-title">Agregar nuevo producto</h5>
+            <h5 class="modal-title" id="modal-basic-title" [innerHTML]="title"></h5>
             <button type="button" class="close" aria-label="Close" (click)="onClose(false)">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <p class="mb-4">Por favor ingrese los siguientes datos para registrar un nuevo producto (todos los campos
-                son obligatorios):</p>
-            <form [formGroup]="registerForm">
+            <p class="mb-4" [innerHTML]="header"></p>
+            <div *ngIf="activateInput" class="d-flex align-items-center buttonsInput p-6">
+                <button type="button" class="btn btn-lg btn-outline-secondary" (click)="onClick('new')">
+                    {{dataView.parametricTexts.buttons[0].labelbtn2}}
+                </button>
+                <button type="button" class="btn btn-lg btn-outline-success" (click)="onClick('existent')">
+                    {{dataView.parametricTexts.buttons[0].labelbtn3}}
+                </button>
+            </div>
+            <form [formGroup]="registerForm" *ngIf="!activateInput">
                 <div class="row form-group content-center">
                     <div class="col-md-6">
                         <input type="text" class="form-control" placeholder="Nombre del producto"
@@ -19,8 +26,8 @@
                         <input type="text" class="form-control" placeholder="Referencia" formControlName="reference">
                     </div>
                     <div class="col-md-3">
-                        <!-- <input type="text" class="form-control" placeholder="Referencia" formControlName="reference"> -->
-                        <select id="world" name="world" class="form-control" formControlName="reference" (change)="onChange($event)">
+                        <select id="world" name="world" class="form-control" formControlName="reference"
+                            (change)="onChange($event)">
                             <option selected>Seleccione categoria</option>
                             <option *ngFor="let category of categories">
                                 {{category}}
@@ -50,9 +57,10 @@
                 </div>
             </form>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline-info" [disabled]="validateForm()"
-                (click)="onCall()">Save</button>
+        <div class="modal-footer" *ngIf="!activateInput">
+            <button type="button" class="btn btn-outline-info" [disabled]="validateForm()" (click)="onCall()">
+                {{dataView.parametricTexts.buttons[0].labelbtn1}}
+            </button>
         </div>
     </div>
 </section>

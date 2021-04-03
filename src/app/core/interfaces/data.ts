@@ -3,6 +3,7 @@ export interface Data {
 
 export interface Modal {
     activateModal: boolean;
+    activateInput: boolean;
     textsProductForm?: any;
     dataProductForm?: any;
 }

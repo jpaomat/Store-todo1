@@ -65,6 +65,7 @@ export class NavComponent implements OnInit {
   public showForm(state) {
     this.productFormService.showModal({
       activateModal: state,
+      activateInput: false
       // textsProductForm: 'data to show on product form layout',
       // dataProductForm: 'data product form'
     });

@@ -34,7 +34,7 @@ export class KardexComponent implements OnInit {
     this.optionSelected = this.dataView.parametricTexts.header[2].buttons[0].option;
     this.arrayClassButtons[0] = 'd-none';
     this.validateOptionSelected(0);
-    console.log('this.dataView', this.dataView);
+    console.log('textos parámetricos kardex', this.dataView);
   }
 
   public validateStock(stock): string {
@@ -62,8 +62,9 @@ export class KardexComponent implements OnInit {
     console.log('¡clickkk', state)
     this.productFormService.showModal({
       activateModal: state,
-      textsProductForm: 'data to show on product form layout',
-      dataProductForm: 'data product form'
+      activateInput: true,
+      // textsProductForm: 'data to show on product form layout',
+      // dataProductForm: 'data product form'
     });
   }
 }

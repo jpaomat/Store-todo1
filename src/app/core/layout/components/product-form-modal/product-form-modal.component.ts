@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ProductFormModalService } from 'src/app/core/services/productFormModal/product-form-modal.service';
 
-import { AngularFireStorage } from '@angular/fire/storage';
 import { RequestsService } from 'src/app/core/services/requests/requests.service';
 import { Router } from '@angular/router';
+import FORM from 'src/app/config/dataTest/form.json';
+import { DataManagementService } from 'src/app/core/services/dataManagement/data-management.service';
 
 @Component({
   selector: 'app-form-modal',
@@ -16,17 +16,27 @@ import { Router } from '@angular/router';
 export class ProductFormModalComponent implements OnInit {
 
   public showModal: boolean;
+  public activateInput: boolean;
   public registerForm: FormGroup;
-  private suscription: Subscription;
-  private nameCollection: string = 'todo1';
   public categories: string[];
   public category: string;
+  public title: string;
+  public header: string;
+  public dataView = {
+    parametricTexts: {
+      title: [],
+      header: [],
+      placeholders: [],
+      buttons: []
+    }
+  }
 
   constructor(
     private productFormService: ProductFormModalService,
     private formBuilder: FormBuilder,
     private requestsService: RequestsService,
-    public router: Router
+    public router: Router,
+    private dataManagementService: DataManagementService
   ) { }
 
   ngOnInit(): void {
@@ -36,16 +46,20 @@ export class ProductFormModalComponent implements OnInit {
   }
 
   private initializeData(): void {
-    this.suscription = this.productFormService.getModal().subscribe(response => {
+    this.dataManagementService.organizeDataView('texts', FORM.form, this.dataView.parametricTexts);
+    this.productFormService.getModal().subscribe(response => {
       if (response) {
         this.showModal = (response.activateModal) ? true : false;
+        this.activateInput = (response.activateInput) ? true : false;
+        this.getTexts();
         /* istanbul ignore else*/
         if (this.showModal) {
-          console.log('data recibida en modal', response);
+          console.log('data recibida en modal', response, this.activateInput);
           return;
         }
       }
     });
+    console.log('textos parámetricos form', this.dataView);
   }
 
   private initializeForm(): void {
@@ -78,6 +92,17 @@ export class ProductFormModalComponent implements OnInit {
     console.log('category', this.category);
   }
 
+  public getTexts(): void {
+    let index = (this.activateInput) ? 1 : 0;
+      this.title = this.dataView.parametricTexts.title[index].text;
+      this.header = this.dataView.parametricTexts.header[index].text;
+  }
+
+  public onClick(state): void {
+    this.activateInput = (state == 'new') ? false: true;
+    this.getTexts();
+  }
+
   public validateForm() {
     return (this.registerForm.valid) ? false : true;
     // return (this.registerForm.valid && this.registerForm.get('image').value) ? false : true;
@@ -85,7 +110,8 @@ export class ProductFormModalComponent implements OnInit {
 
   public onClose(state): void {
     this.productFormService.showModal({
-      activateModal: state
+      activateModal: state,
+      activateInput: false
     });
     this.initializeForm();
   }
