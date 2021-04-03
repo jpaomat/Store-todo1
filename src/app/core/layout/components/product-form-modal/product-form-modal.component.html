@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body">
             <p class="mb-4" [innerHTML]="header"></p>
-            <div *ngIf="activateInput" class="d-flex align-items-center buttonsInput p-6">
+            <div *ngIf="activateInput && !sectionInput" class="d-flex align-items-center buttonsInput p-6">
                 <button type="button" class="btn btn-lg btn-outline-secondary" (click)="onClick('new')">
                     {{dataView.parametricTexts.buttons[0].labelbtn2}}
                 </button>
@@ -16,48 +16,66 @@
                     {{dataView.parametricTexts.buttons[0].labelbtn3}}
                 </button>
             </div>
-            <form [formGroup]="registerForm" *ngIf="!activateInput">
-                <div class="row form-group content-center">
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="Nombre del producto"
-                            formControlName="nameProduct">
+            <form [formGroup]="registerForm">
+                <div *ngIf="!activateInput">
+                    <div class="row form-group content-center">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Nombre del producto"
+                                formControlName="nameProduct">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" placeholder="Referencia"
+                                formControlName="reference">
+                        </div>
+                        <div class="col-md-3">
+                            <select id="world" name="world" class="form-control" formControlName="reference"
+                                (change)="onChange($event)">
+                                <option selected>Seleccione categoria</option>
+                                <option *ngFor="let category of categories">
+                                    {{category}}
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Referencia" formControlName="reference">
+                    <div class="row form-group content-center">
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="Descripción"
+                                formControlName="description">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" placeholder="Cantidad" formControlName="quantity">
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <select id="world" name="world" class="form-control" formControlName="reference"
-                            (change)="onChange($event)">
-                            <option selected>Seleccione categoria</option>
-                            <option *ngFor="let category of categories">
-                                {{category}}
-                            </option>
-                        </select>
+                    <div class="row form-group content-center">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" placeholder="Precio" formControlName="price">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" placeholder="Descuento" formControlName="discount">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="file" class="col-sm-12 btn-image py-1 content-center"
+                                accept=".png, .jpg, .jpeg" (change)="captureImage($event)">
+                        </div>
                     </div>
                 </div>
-                <div class="row form-group content-center">
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" placeholder="Descripción" formControlName="description">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Cantidad" formControlName="quantity">
-                    </div>
-                </div>
-                <div class="row form-group content-center">
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Precio" formControlName="price">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Descuento" formControlName="discount">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="file" class="col-sm-12 btn-image py-1 content-center" accept=".png, .jpg, .jpeg"
-                            (change)="captureImage($event)">
+                <hr>
+                <div *ngIf="sectionInput">
+                    <div class="row form-group content-center">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Numero factura" >
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="cantidad" >
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Precio" >
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="modal-footer" *ngIf="!activateInput">
+        <div class="modal-footer" *ngIf="!activateInput || sectionInput">
             <button type="button" class="btn btn-outline-info" [disabled]="validateForm()" (click)="onCall()">
                 {{dataView.parametricTexts.buttons[0].labelbtn1}}
             </button>

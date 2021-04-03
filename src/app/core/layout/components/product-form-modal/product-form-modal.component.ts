@@ -17,6 +17,7 @@ export class ProductFormModalComponent implements OnInit {
 
   public showModal: boolean;
   public activateInput: boolean;
+  public sectionInput: boolean;
   public registerForm: FormGroup;
   public categories: string[];
   public category: string;
@@ -63,6 +64,7 @@ export class ProductFormModalComponent implements OnInit {
   }
 
   private initializeForm(): void {
+    this.sectionInput = false;
     this.registerForm = this.formBuilder.group({
       nameProduct: ['', Validators.required],
       reference: ['', Validators.required],
@@ -99,6 +101,7 @@ export class ProductFormModalComponent implements OnInit {
   }
 
   public onClick(state): void {
+    this.sectionInput = true;
     this.activateInput = (state == 'new') ? false: true;
     this.getTexts();
   }
