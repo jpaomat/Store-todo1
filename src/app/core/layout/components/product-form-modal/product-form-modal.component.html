@@ -14,57 +14,44 @@
                     <div class="col-md-6">
                         <input type="text" class="form-control" placeholder="Nombre del producto"
                             formControlName="nameProduct">
-                        <!-- <div class="alertt" *ngIf="namePet.invalid && (namePet.dirty ||   namePet.touched)">
-                            <span>Ingrese el nombre de la mascota (Solo letras)</span>
-                        </div> -->
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <input type="text" class="form-control" placeholder="Referencia" formControlName="reference">
-                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
-                            <span>Ingrese la raza de la mascota (Solo letras)</span>
-                        </div> -->
+                    </div>
+                    <div class="col-md-3">
+                        <!-- <input type="text" class="form-control" placeholder="Referencia" formControlName="reference"> -->
+                        <select id="world" name="world" class="form-control" formControlName="reference" (change)="onChange($event)">
+                            <option selected>Seleccione categoria</option>
+                            <option *ngFor="let category of categories">
+                                {{category}}
+                            </option>
+                        </select>
                     </div>
                 </div>
                 <div class="row form-group content-center">
                     <div class="col-md-9">
                         <input type="text" class="form-control" placeholder="Descripción" formControlName="description">
-                        <!-- <div class="alertt" *ngIf="namePet.invalid && (namePet.dirty ||   namePet.touched)">
-                            <span>Ingrese el nombre de la mascota (Solo letras)</span>
-                        </div> -->
                     </div>
                     <div class="col-md-3">
                         <input type="text" class="form-control" placeholder="Cantidad" formControlName="quantity">
-                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
-                            <span>Ingrese la raza de la mascota (Solo letras)</span>
-                        </div> -->
                     </div>
                 </div>
                 <div class="row form-group content-center">
                     <div class="col-md-3">
                         <input type="text" class="form-control" placeholder="Precio" formControlName="price">
-                        <!-- <div class="alertt" *ngIf="namePet.invalid && (namePet.dirty ||   namePet.touched)">
-                            <span>Ingrese el nombre de la mascota (Solo letras)</span>
-                        </div> -->
                     </div>
                     <div class="col-md-3">
                         <input type="text" class="form-control" placeholder="Descuento" formControlName="discount">
-                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
-                            <span>Ingrese la raza de la mascota (Solo letras)</span>
-                        </div> -->
                     </div>
                     <div class="col-md-6">
-                        <input type="file" class="col-sm-12 btn-image py-1 content-center"
+                        <input type="file" class="col-sm-12 btn-image py-1 content-center" accept=".png, .jpg, .jpeg"
                             (change)="captureImage($event)">
-                        <!-- <input type="text" class="form-control" placeholder="Imagen" formControlName="image"> -->
-                        <!-- <div class="alertt" *ngIf="racePet.invalid && (racePet.dirty ||       racePet.touched)">
-                            <span>Ingrese la raza de la mascota (Solo letras)</span>
-                        </div> -->
                     </div>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-success" [disabled]="validateForm()"
+            <button type="button" class="btn btn-outline-info" [disabled]="validateForm()"
                 (click)="onCall()">Save</button>
         </div>
     </div>

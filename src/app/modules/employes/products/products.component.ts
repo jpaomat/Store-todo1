@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from 'src/app/core/services/requests/requests.service';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  public category: string;
+  public products;
+  constructor(
+    private requestsService: RequestsService
+  ) { }
 
   ngOnInit(): void {
+    this.category = localStorage.getItem("category");
+    this.requestsService.getData(this.requestsService.getCollection('sacos')).subscribe( data => {
+      this.products =  data;
+    });
   }
 
 }

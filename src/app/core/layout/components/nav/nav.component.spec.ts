@@ -29,4 +29,9 @@ describe('NavComponent', () => {
     component.redirectTo('');
     expect(component).toBeTruthy();
   });
+
+  it('should show the modal', () => {
+    component.showForm(true);
+    expect(component).toBeTruthy();
+  });
 });

@@ -125,6 +125,10 @@
               "devServerTarget": "store-todo1:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

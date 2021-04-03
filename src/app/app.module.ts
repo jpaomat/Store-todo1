@@ -8,6 +8,13 @@ import { ComponentsModule } from './core/layout/components/components.module';
 import { FooterComponent } from './core/layout/components/footer/footer.component';
 import { NavComponent } from './core/layout/components/nav/nav.component';
 
+// firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +25,15 @@ import { NavComponent } from './core/layout/components/nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ComponentsModule
+    ComponentsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFirestoreModule,
+    // AngularFireStorageModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AngularFirestore
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
