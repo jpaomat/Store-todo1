@@ -1,6 +1,9 @@
-# StoreTodo1
+# Store-todo1
+En esta tienda los empleados de la empresa podrán adquirir diferentes productos. Además el administrador de la aplicación puede hacer diferentes modificaciones como agregar productos o modificar las cantidades de estos.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+## Installing dependencies
+Run command `npm install -f` to ensure all firebase dependencies are installed
 
 ## Development server
 
@@ -16,12 +19,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng test --code-coverage` to execute the unit tests via [Karma](https://karma-runner.github.io) and generate the coverage.
 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
