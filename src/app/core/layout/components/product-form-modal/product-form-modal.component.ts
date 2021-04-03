@@ -19,6 +19,7 @@ export class ProductFormModalComponent implements OnInit {
   public activateInput: boolean;
   public sectionInput: boolean;
   public registerForm: FormGroup;
+  public inventoryForm: FormGroup;
   public categories: string[];
   public category: string;
   public title: string;
@@ -69,11 +70,18 @@ export class ProductFormModalComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       nameProduct: ['', Validators.required],
       reference: ['', Validators.required],
+      category: ['', Validators.required],
       description: ['', Validators.required],
       quantity: ['', Validators.required],
       price: ['', Validators.required],
       discount: ['', Validators.required],
-      image: [],
+      image: []
+    });
+    this.inventoryForm = this.formBuilder.group({
+      invoiceNumber: [],
+      inputAmount: [],
+      invoicedAmount: [],
+      reference: []
     });
   }
 
@@ -97,18 +105,19 @@ export class ProductFormModalComponent implements OnInit {
 
   public getTexts(): void {
     let index = (this.activateInput) ? 1 : 0;
-      this.title = this.dataView.parametricTexts.title[index].text;
-      this.header = this.dataView.parametricTexts.header[index].text;
+    this.title = this.dataView.parametricTexts.title[index].text;
+    this.header = this.dataView.parametricTexts.header[index].text;
   }
 
   public onClick(state): void {
     this.sectionInput = true;
-    this.activateInput = (state == 'new') ? false: true;
+    this.activateInput = (state == 'new') ? false : true;
     this.getTexts();
   }
 
   public validateForm() {
-    return (this.registerForm.valid) ? false : true;
+    let valueFormInventory = this.inventoryForm.value;
+    return (this.registerForm.valid || valueFormInventory.inputAmount) ? false : true;
     // return (this.registerForm.valid && this.registerForm.get('image').value) ? false : true;
   }
 
@@ -121,10 +130,14 @@ export class ProductFormModalComponent implements OnInit {
   }
 
   public onCall(): void {
-    console.log('register form', this.registerForm);
     let valueForm = this.registerForm.value;
+    let valueFormInventory = this.inventoryForm.value;
+    console.log('register form', valueForm, valueFormInventory);
     const id = Math.random().toString(36).substring(2);
     this.requestsService.saveData(valueForm, id, this.requestsService.getCollection(this.category));
+    if (valueFormInventory.inputAmount) {
+      this.requestsService.saveData(valueFormInventory, id, this.requestsService.getCollection('inputs'));
+    }
     this.initializeForm();
     this.onClose(false);
     this.router.navigate(['/']);

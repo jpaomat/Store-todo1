@@ -24,10 +24,6 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories$ = this.requestsService.getData(this.requestsService.getCollection('categoriasProductos'));
-    // this.requestsService.getData(this.requestsService.getCollection('categoriasProductos')).subscribe( data => {
-    //   this.categories$ = data;
-    //   console.log('this.categories$', this.categories$)
-    // });
   }
 
   public getData(data) {
@@ -36,7 +32,6 @@ export class NavComponent implements OnInit {
     keys.forEach((element, i) => {
       newArray[i] = data[element];
     });
-    // this.categoriesArray = newArray;
     localStorage.setItem("categories", JSON.stringify(newArray));
     return newArray;
   }
@@ -46,7 +41,6 @@ export class NavComponent implements OnInit {
   }
 
   public onClick(category): void {
-    // this.showProducts = (category === 'false') ? false : true;
     this.showProducts = true;
     localStorage.setItem("category", category);
     this.category = category;
@@ -66,8 +60,6 @@ export class NavComponent implements OnInit {
     this.productFormService.showModal({
       activateModal: state,
       activateInput: false
-      // textsProductForm: 'data to show on product form layout',
-      // dataProductForm: 'data product form'
     });
   }
 }

@@ -47,13 +47,14 @@
             </tr>
         </tbody>
     </table>
-    <div *ngIf="optionSelected =='inputs'" class="d-flex justify-content-between align-items-center footerTable">
+    <div *ngIf="optionSelected =='inputs'" class="d-flex justify-content-between align-items-center footerTable addProduct"
+        (click)="showForm(true)">
         <div class="">
             <P>
                 Agregar otra entrada
             </P>
         </div>
-        <div class="addProduct" (click)="showForm(true)">
+        <div class="addProduct">
             <i class="fas fa-plus-circle"></i>
         </div>
     </div>

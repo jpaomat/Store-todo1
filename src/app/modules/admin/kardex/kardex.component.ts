@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import KARDEX from 'src/app/config/dataTest/kardex.json';
 import { DataManagementService } from 'src/app/core/services/dataManagement/data-management.service';
 import { ProductFormModalService } from 'src/app/core/services/productFormModal/product-form-modal.service';
+import { RequestsService } from 'src/app/core/services/requests/requests.service';
 
+import KARDEX from 'src/app/config/dataTest/kardex.json';
 @Component({
   selector: 'app-kardex',
   templateUrl: './kardex.component.html',
@@ -12,6 +12,7 @@ import { ProductFormModalService } from 'src/app/core/services/productFormModal/
 export class KardexComponent implements OnInit {
 
   public productsInventory;
+  public inputs;
   public optionSelected: string;
   public titleTable: string;
   public arrayClassButtons: string[] = [];
@@ -25,16 +26,31 @@ export class KardexComponent implements OnInit {
 
   constructor(
     private dataManagementService: DataManagementService,
-    private productFormService: ProductFormModalService
+    private productFormService: ProductFormModalService,
+    private requestsService:RequestsService
   ) { }
 
   ngOnInit(): void {
+    this.initializedData();
+    this.getData();
+  }
+
+  private initializedData(): void {
     this.dataManagementService.organizeDataView('texts', KARDEX.kardex, this.dataView.parametricTexts);
     this.titleTable = this.dataView.parametricTexts.header[0].title[0].T001
     this.optionSelected = this.dataView.parametricTexts.header[2].buttons[0].option;
     this.arrayClassButtons[0] = 'd-none';
     this.validateOptionSelected(0);
     console.log('textos parámetricos kardex', this.dataView);
+  }
+
+  private getData(){
+    this.requestsService.getData(this.requestsService.getCollection('inputs')).subscribe(data => {
+      if (data) {
+        console.log('data de los inputs', data);
+        this.inputs = data;
+      }
+    });
   }
 
   public validateStock(stock): string {
@@ -59,12 +75,9 @@ export class KardexComponent implements OnInit {
   }
 
   public showForm(state) {
-    console.log('¡clickkk', state)
     this.productFormService.showModal({
       activateModal: state,
-      activateInput: true,
-      // textsProductForm: 'data to show on product form layout',
-      // dataProductForm: 'data product form'
+      activateInput: true
     });
   }
 }

@@ -30,7 +30,7 @@
                                 formControlName="reference">
                         </div>
                         <div class="col-md-3">
-                            <select id="world" name="world" class="form-control" formControlName="reference"
+                            <select id="world" name="world" class="form-control" formControlName="category"
                                 (change)="onChange($event)">
                                 <option selected> {{dataView.parametricTexts.placeholders[0].text3}}</option>
                                 <option *ngFor="let category of categories">
@@ -67,21 +67,31 @@
                         </div>
                     </div>
                 </div>
+            </form>
+            <form action="" [formGroup]="inventoryForm">
                 <div *ngIf="sectionInput">
                     <p [innerHTML]="dataView.parametricTexts.footer[0].text"></p>
                     <hr>
                     <div class="row form-group content-center">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <input type="text" class="form-control"
-                                [placeholder]="dataView.parametricTexts.placeholders[0].text8">
+                                [placeholder]="dataView.parametricTexts.placeholders[0].text8"
+                                formControlName="invoiceNumber">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <input type="text" class="form-control"
-                                [placeholder]="dataView.parametricTexts.placeholders[0].text5">
+                                [placeholder]="dataView.parametricTexts.placeholders[0].text2"
+                                formControlName="reference">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <input type="text" class="form-control"
-                                [placeholder]="dataView.parametricTexts.placeholders[0].text6">
+                                [placeholder]="dataView.parametricTexts.placeholders[0].text5"
+                                formControlName="inputAmount">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control"
+                                [placeholder]="dataView.parametricTexts.placeholders[0].text6"
+                                formControlName="invoicedAmount">
                         </div>
                     </div>
                 </div>
