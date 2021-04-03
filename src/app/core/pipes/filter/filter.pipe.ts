@@ -16,7 +16,7 @@ export class FilterPipe implements PipeTransform {
     }
     for (const data of value) {
       let parameter = (data.reference) ? data.reference : data.name;
-      if ((args.length > 1) && (num < limit) && (this.removeAccents(parameter).toLowerCase()).indexOf(this.removeAccents(args.toLowerCase())) > -1) {
+      if ((args.length >= 1) && (num < limit) && (this.removeAccents(parameter).toLowerCase()).indexOf(this.removeAccents(args.toLowerCase())) > -1) {
         resultFilter.push(data);
         num++;
       }
