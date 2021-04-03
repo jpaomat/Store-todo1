@@ -6,6 +6,7 @@ import { ProductFormModalService } from 'src/app/core/services/productFormModal/
 
 import { AngularFireStorage } from '@angular/fire/storage';
 import { RequestsService } from 'src/app/core/services/requests/requests.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-modal',
@@ -24,7 +25,8 @@ export class ProductFormModalComponent implements OnInit {
   constructor(
     private productFormService: ProductFormModalService,
     private formBuilder: FormBuilder,
-    private requestsService: RequestsService
+    private requestsService: RequestsService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -85,14 +87,16 @@ export class ProductFormModalComponent implements OnInit {
     this.productFormService.showModal({
       activateModal: state
     });
+    this.initializeForm();
   }
 
   public onCall(): void {
     console.log('register form', this.registerForm);
     let valueForm = this.registerForm.value;
     const id = Math.random().toString(36).substring(2);
-    this.requestsService.saveData(valueForm, id, this.requestsService.getCollection(this.category))
+    this.requestsService.saveData(valueForm, id, this.requestsService.getCollection(this.category));
+    this.initializeForm();
     this.onClose(false);
-
+    this.router.navigate(['/']);
   }
 }
