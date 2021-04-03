@@ -67,8 +67,9 @@
                         </div>
                     </div>
                 </div>
-                <hr>
                 <div *ngIf="sectionInput">
+                    <p [innerHTML]="dataView.parametricTexts.footer[0].text"></p>
+                    <hr>
                     <div class="row form-group content-center">
                         <div class="col-md-4">
                             <input type="text" class="form-control"

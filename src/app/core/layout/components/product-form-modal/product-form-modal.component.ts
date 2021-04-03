@@ -28,6 +28,7 @@ export class ProductFormModalComponent implements OnInit {
       title: [],
       header: [],
       placeholders: [],
+      footer: [],
       buttons: []
     }
   }

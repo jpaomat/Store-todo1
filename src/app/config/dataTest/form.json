@@ -20,7 +20,7 @@
                 },
                 {
                     "index": "2",
-                    "text": "Si el producto no existe, tendrá que agregarlo antes de añadir una entrada:"
+                    "text": "Si el producto no existe, tendrá que agregarlo antes de añadir una entrada"
                 }
             ]
         },
@@ -35,6 +35,14 @@
                     "text6": "Precio",
                     "text7": "Descuento",
                     "text8": "Número factura"
+                }
+            ]
+        },
+        {
+            "footer": [
+                {
+                    "index": "1",
+                    "text": "Campos para hacer registro en inventario:"
                 }
             ]
         },
