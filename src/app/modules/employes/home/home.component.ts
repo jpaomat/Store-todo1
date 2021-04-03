@@ -35,6 +35,6 @@ export class HomeComponent implements OnInit {
     console.log('this.dataView.products', PRODUCTS.products[0]);
     this.discountCategories = this.dataManagementService.getProductsWithOffer(PRODUCTS.discountCategories[0]);
     this.ofertas = this.dataManagementService.getProductsWithOffer(PRODUCTS.products[0]);
-    
+
   }
 }

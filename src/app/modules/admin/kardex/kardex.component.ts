@@ -4,6 +4,7 @@ import { ProductFormModalService } from 'src/app/core/services/productFormModal/
 import { RequestsService } from 'src/app/core/services/requests/requests.service';
 
 import KARDEX from 'src/app/config/dataTest/kardex.json';
+import { forkJoin } from 'rxjs';
 @Component({
   selector: 'app-kardex',
   templateUrl: './kardex.component.html',
@@ -12,10 +13,12 @@ import KARDEX from 'src/app/config/dataTest/kardex.json';
 export class KardexComponent implements OnInit {
 
   public productsInventory;
+  private categories: string[];
   public inputs;
   public optionSelected: string;
   public titleTable: string;
   public arrayClassButtons: string[] = [];
+  public products = [];
   public dataView = {
     parametricTexts: {
       header: [],
@@ -27,7 +30,7 @@ export class KardexComponent implements OnInit {
   constructor(
     private dataManagementService: DataManagementService,
     private productFormService: ProductFormModalService,
-    private requestsService:RequestsService
+    private requestsService: RequestsService
   ) { }
 
   ngOnInit(): void {
@@ -44,13 +47,28 @@ export class KardexComponent implements OnInit {
     console.log('textos parámetricos kardex', this.dataView);
   }
 
-  private getData(){
+  private getData() {
+    const getsProducts = [];
+    this.categories = JSON.parse(localStorage.getItem("categories"));
     this.requestsService.getData(this.requestsService.getCollection('inputs')).subscribe(data => {
       if (data) {
-        console.log('data de los inputs', data);
+        console.log('data de los inputs', data, this.categories);
         this.inputs = data;
       }
     });
+    this.categories.forEach(category => {
+      getsProducts.push(this.requestsService.getData(this.requestsService.getCollection(category)));
+    });
+    console.log('PRODUCTS', getsProducts);
+    forkJoin(getsProducts).subscribe(
+      this.getProducts()
+    );
+  }
+
+  private getProducts(): (response: Array<any>) => void {
+    return (response: Array<any>) => {
+      this.products = response;
+    };
   }
 
   public validateStock(stock): string {
