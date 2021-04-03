@@ -18,9 +18,9 @@ import { environment } from 'src/environments/environment';
     CommonModule,
     AdminRoutingModule,
     NgbModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    AngularFireStorageModule
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFirestoreModule,
+    // AngularFireStorageModule
   ],
   providers: [
     {

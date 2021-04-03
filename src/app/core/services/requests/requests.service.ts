@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { finalize, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PostI, Products } from '../../interfaces/data';
-import { FileIma } from '../../interfaces/file-ima';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
-import { promise } from 'selenium-webdriver';
-import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +11,6 @@ export class RequestsService {
   public products: Observable<Products[]>
   private productsCollection: AngularFirestoreCollection<Products>
   constructor(
-    private storage: AngularFireStorage,
-    private httpClient: HttpClient,
     private afs: AngularFirestore
   ) {
   }

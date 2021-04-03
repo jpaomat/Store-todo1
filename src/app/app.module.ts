@@ -10,8 +10,6 @@ import { NavComponent } from './core/layout/components/nav/nav.component';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -27,12 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     ComponentsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    // AngularFirestoreModule,
-    // AngularFireStorageModule,
     HttpClientModule
-  ],
-  providers: [
-    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })
