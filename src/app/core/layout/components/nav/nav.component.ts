@@ -10,9 +10,11 @@ import { RequestsService } from 'src/app/core/services/requests/requests.service
 })
 export class NavComponent implements OnInit {
 
-  @Input() public categories: string[];
+  public category: string;
+  public products;
   public categories$;
   public categoriesArray: string[];
+  public showProducts: boolean;
 
   constructor(
     public router: Router,
@@ -44,8 +46,20 @@ export class NavComponent implements OnInit {
   }
 
   public onClick(category): void {
+    // this.showProducts = (category === 'false') ? false : true;
+    this.showProducts = true;
     localStorage.setItem("category", category);
-    this.redirectTo('products');
+    this.category = category;
+    this.requestsService.getData(this.requestsService.getCollection(category)).subscribe(data => {
+      if (data) {
+        this.products = data;
+        this.redirectTo('products');
+      }
+    });
+  }
+
+  public hideProducts():void{
+    this.showProducts = false;
   }
 
   public showForm(state) {

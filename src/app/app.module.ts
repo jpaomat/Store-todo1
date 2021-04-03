@@ -12,6 +12,7 @@ import { NavComponent } from './core/layout/components/nav/nav.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { UiComponentsModule } from './core/layout/ui-components/ui-components.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     ComponentsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    HttpClientModule
+    HttpClientModule,
+    UiComponentsModule
   ],
   bootstrap: [AppComponent]
 })
