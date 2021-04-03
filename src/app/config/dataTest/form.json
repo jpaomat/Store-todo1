@@ -33,7 +33,8 @@
                     "text4": "Descripción",
                     "text5": "Cantidad",
                     "text6": "Precio",
-                    "text7": "Descuento"
+                    "text7": "Descuento",
+                    "text8": "Número factura"
                 }
             ]
         },
