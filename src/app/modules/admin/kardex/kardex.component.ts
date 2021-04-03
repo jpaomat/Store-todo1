@@ -13,6 +13,7 @@ import { forkJoin } from 'rxjs';
 export class KardexComponent implements OnInit {
 
   public productsInventory;
+  public filterProduct: string;
   private categories: string[];
   public inputs;
   public optionSelected: string;
@@ -49,7 +50,7 @@ export class KardexComponent implements OnInit {
 
   private getData() {
     const getsProducts = [];
-    this.categories = JSON.parse(localStorage.getItem("categories"));
+    this.categories = JSON.parse(localStorage.getItem("categories")) ? (JSON.parse(localStorage.getItem("categories"))) : ['inputs'];
     this.requestsService.getData(this.requestsService.getCollection('inputs')).subscribe(data => {
       if (data) {
         console.log('data de los inputs', data, this.categories);
@@ -90,6 +91,10 @@ export class KardexComponent implements OnInit {
     this.titleTable = this.dataView.parametricTexts.header[0].title[index].T001;
     this.optionSelected = optionSelected;
     this.validateOptionSelected(index);
+  }
+
+  public onInputHandler(event) {
+      this.filterProduct = event.target.value;
   }
 
   public showForm(state) {

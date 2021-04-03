@@ -11,7 +11,8 @@ import { FilterPipe } from './filter/filter.pipe';
     CommonModule
   ],
   exports: [
-    CurrentPipe
+    CurrentPipe,
+    FilterPipe
   ]
 })
 export class PipesModule { }

@@ -12,7 +12,6 @@ export class MainProductsComponent implements OnInit {
   @Input() public products;
   @Input() public showProducts: boolean;
   constructor(
-    private requestsService: RequestsService
   ) { }
 
   ngOnInit(): void {

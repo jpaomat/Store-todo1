@@ -6,16 +6,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(value: any, args): unknown {
-    // console.log('parámetros pipe', value, args);
+    console.log('parámetros pipe', value, args);
     const resultFilter = [];
     let limit: number = 5;
     let num = 0;
+    /* istanbul ignore else*/
     if (!args) {
-      return resultFilter;
+      return value;
     }
     for (const data of value) {
-      let parameter = (data.economicActivity) ? data.economicActivity : data.nombre;
-      if ((args.length > 2) && (num < limit) && (this.removeAccents(parameter).toLowerCase()).indexOf(this.removeAccents(args.toLowerCase())) > -1) {
+      let parameter = (data.reference) ? data.reference : data.name;
+      if ((args.length > 1) && (num < limit) && (this.removeAccents(parameter).toLowerCase()).indexOf(this.removeAccents(args.toLowerCase())) > -1) {
         resultFilter.push(data);
         num++;
       }

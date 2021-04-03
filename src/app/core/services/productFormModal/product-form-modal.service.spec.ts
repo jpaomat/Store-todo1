@@ -6,6 +6,7 @@ describe('ProductFormModalService', () => {
   let service: ProductFormModalService;
   let dataTest = {
     activateModal: true,
+    activateInput: false,
     textsProductForm: 'data to show on product form layout',
     dataProductForm: 'data product form'
   }

@@ -6,7 +6,7 @@
         <div class="input">
             <div class="input-group">
                 <input type="text" class="form-control"
-                    [placeholder]="dataView.parametricTexts.header[1].search[0].placeholder">
+                    [placeholder]="dataView.parametricTexts.header[1].search[0].placeholder" (input)="onInputHandler($event)">
                 <button class="btn btn-outline-secondary tooltipp" type="button" placement="top"
                     [ngbTooltip]="dataView.parametricTexts.header[1].search[0].tooltip">
                     <i class="fas fa-question-circle"></i>
@@ -37,7 +37,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of productsInventory; let i= index" [ngClass]="validateStock(product.stock)">
+            <tr *ngFor="let product of productsInventory | filter: filterProduct; let i= index" [ngClass]="validateStock(product.stock)">
                 <td *ngFor="let columns of fieldsTable">
                     {{product[columns.field]}}
                 </td>

@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { DataManagementService } from 'src/app/core/services/dataManagement/data-management.service';
 import { ProductFormModalService } from 'src/app/core/services/productFormModal/product-form-modal.service';
 import { RequestsService } from 'src/app/core/services/requests/requests.service';
 import { environment } from 'src/environments/environment';
@@ -16,12 +19,14 @@ describe('ProductFormModalComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductFormModalComponent ],
       imports: [
+        RouterTestingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig)
       ],
       providers: [
         ProductFormModalService,
         FormBuilder,
-        RequestsService
+        RequestsService,
+        DataManagementService
       ]
     })
     .compileComponents();
