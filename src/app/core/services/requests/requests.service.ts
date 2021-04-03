@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { PostI, Products } from '../../interfaces/data';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { FileIma } from '../../interfaces/file-ima';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,6 @@ export class RequestsService {
   }
 
   public getCollection(nameCollection) {
-    // this.productsCollection = this.afs.collection<Products>(nameCollection);
     return this.afs.collection<Products>(nameCollection);
   }
 
@@ -49,22 +49,6 @@ export class RequestsService {
       }
     })
   }
-
-  // public getAllPosts(): Observable<PostI[]> {
-  //   // return this.db.collection('posts').snapshotChanges().pipe(
-  //   //   map(actions => {
-  //   //     actions.map(a => {
-  //   //       const data = a.payload.doc.data() as PostI[];
-  //   //       const id = a.payload.doc.id;
-  //   //       return { id, ...data }
-  //   //     })
-  //   //   })
-  //   // )
-  // }
-
-  // getAll(collection: string): Observable<firebase.firestore.QuerySnapshot> {
-  //   return this.db.collection<Pets>(collection, ref => ref.orderBy('lastModifiedDate', 'desc')).get();
-  // }
 
   // public saveAll(products: Products, collection: string): Promise<any> {
   //   return this.afs.collection(collection).add(products);
