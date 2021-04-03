@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.category = localStorage.getItem("category");
+    this.category = localStorage.getItem("category") ? localStorage.getItem("category") : 'category';
     this.requestsService.getData(this.requestsService.getCollection(this.category)).subscribe( data => {
       this.products =  data;
     });
