@@ -24,7 +24,7 @@ export class FilterPipe implements PipeTransform {
     return resultFilter;
   }
 
-  private removeAccents(str) {
+  public removeAccents(str) {
     const cleanStr = str
       .replace(/á/g, 'a')
       .replace(/é/g, 'e')

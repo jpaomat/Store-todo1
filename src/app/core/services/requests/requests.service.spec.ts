@@ -14,13 +14,13 @@ describe('RequestsService', () => {
         AngularFireModule.initializeApp(environment.firebaseConfig)
       ],
       providers: [
-        // AngularFirestore
       ]
     });
     service = TestBed.inject(RequestsService);
   });
 
   it('should be created', () => {
+    service.deleteData('5')
     expect(service).toBeTruthy();
   });
 });
